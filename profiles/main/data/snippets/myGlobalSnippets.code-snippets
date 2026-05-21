@@ -1,0 +1,265 @@
+{
+	// Place your global snippets here. Each snippet is defined under a snippet name and has a scope, prefix, body and 
+	// description. Add comma separated ids of the languages where the snippet is applicable in the scope field. If scope 
+	// is left empty or omitted, the snippet gets applied to all languages. The prefix is what is 
+	// used to trigger the snippet and the body will be expanded and inserted. Possible variables are: 
+	// $1, $2 for tab stops, $0 for the final cursor position, and ${1:label}, ${2:another} for placeholders. 
+	// Placeholders with the same ids are connected.
+	// Example:
+	// "Print to console": {
+	// 	"scope": "javascript,typescript",
+	// 	"prefix": "log",
+	// 	"body": [
+	// 		"console.log('$1');",
+	// 		"$2"
+	// 	],
+	// 	"description": "Log output to console"
+	// }
+
+
+	"arrow function": {
+		"scope": "javascript,typescript, typescriptreact, tsx, jsx, svelte",
+		"prefix": "af",
+		"body": [
+			"($1) => { $2 }"
+		],
+		"description": "Arrow function",
+	},
+	"async arrow function": {
+	"scope": "javascript,typescript, typescriptreact, tsx, jsx, svelte",
+	"prefix": ["aaf","afa"],
+	"body": [
+	"async ($1) => { $2 }"
+		],
+		"description": "Async Arrow function",
+	},
+	"af returning": {
+	"scope": "javascript,typescript, typescriptreact, tsx, jsx, svelte",
+	"prefix": "afr",
+	"body": [
+	"($1) => ( $2 )"
+		],
+		"description": "Arrow function returning something",
+	},
+	"async af returning": {
+	"scope": "javascript,typescript, typescriptreact, tsx, jsx, svelte",
+	"prefix": ["aafr", "afra"],
+	"body": [
+	"async ($1) => ( $2 )"
+		],
+		"description": "Async Arrow function returning something",
+	},
+
+	"export let": {
+	"scope": "html,svelte,javascript,typescript",
+	"prefix": ["exl", "el", "exlet"],
+	"body": [
+	"export let $1"
+		],
+		"description": "export let",
+	},
+
+	"export const": {
+	"scope": "html,svelte,javascript,typescript",
+	"prefix": ["exc", "ec", "excon"],
+	"body": [
+	"export const $1"
+		],
+		"description": "export let",
+	},
+
+	"div class": {
+	"scope": "html,svelte",
+	"prefix": "dc",
+	"body": [
+	"<div class=\"$1\">$0</div>"
+		],
+		"description": "div with class",
+	},
+
+	"div flex": {
+	"scope": "html,svelte",
+	"prefix": "df",
+	"body": [
+	"<div class=\"flex $0\">$1</div>"
+		],
+		"description": "flex div",
+	},
+	"div flex centered": {
+	"scope": "html,svelte, typescript,javascript, script",
+	"prefix": "df-center",
+	"body": [
+	"<div class=\"flex justify-center items-center $0\">$1</div>"
+		],
+		"description": "flex div",
+	},
+	"div flex column": {
+	"scope": "html,svelte",
+	"prefix": "df-col",
+	"body": [
+	"<div class=\"flex flex-col $0\">$1</div>"
+		],
+		"description": "flex colomn div",
+	},
+	
+	"cnz": {
+	"scope": "javascript,typescript, typescriptreact, tsx, jsx",
+	"prefix": "cnz",
+	"body": [
+	"className={ classes.$0 }"
+		],
+		"description": "Class name used at zoosh",
+	},
+
+	"clgd": {
+		"scope": "javascript,typescript,ts,tsx, jsx, js",
+		"prefix": "clgd",
+		"body": [
+			"console.log('$1:');",
+			"console.log($1);"
+		]
+	},
+
+	"clgv": {
+		"scope": "javascript,typescript,ts,tsx, jsx, js",
+		"prefix": "clgv",
+		"body": [
+			"console.log($1);",
+		]
+	},
+
+	"clg": {
+		"scope": "javascript,typescript,ts,tsx, jsx, js",
+		"prefix": "clg",
+		"body": [
+			"console.log('$1');",
+		]
+	},
+
+
+	"rls_endpoint_get": {
+		"scope": "javascript,typescript,ts,tsx, jsx, js",
+		"prefix": ["rls_endpoint_get", "endpoint_get", "epget"],
+		"body": [
+			"// dto.ts",
+			"",
+			"export const $1_GET_SQuery = z.object({\n  input: z.string(),\n});",
+			"export type $1_GET_TQuery = z.infer<typeof $1_GET_SQuery>",
+			"",
+			"export const $1_GET_SResponse = z.object({\n  output: z.string(),\n})",
+			"export type $1_GET_TResponse = z.infer<typeof $1_GET_SResponse>",
+			"",
+			"export enum $1_GET_ErrorCodes {\n    ID_NOT_FOUND = \"ID_NOT_FOUND\",\n    AUTO_TOAST = \"AUTO_TOAST\"\n}",
+			"",
+			"// client.svelte",
+			"const { data: $2, error } = await apiRequest<{ output: $1_GET_TResponse }>({\n  url: `/events/${input}/api`,\n    method: \"GET\",\n});",
+			"",
+			"if (error) {\n  switch (error.errorCode) {\n    case $1_GET_ErrorCodes.ID_NOT_FOUND:\n      toastError(\"Event not found\");\n      break;\n    default:\n      toastError(\"An error occurred while processing the request.\");\n      break;\n  }\n  toastError(error.details);\n}",
+			"",
+			"//+server.ts",
+			"export const GET = EndpointGenerator.RLS_QUERY_ENDPOINT($1_GET_SQuery, $1_GET_SResponse,{requireAuthentication:false,requirePermissions: [], responseHeaders: { \"Content-Type\": \"application/json\" }}, async ({params,query,user,request,url}) => { \n    const { id } = params;\n    \n          if (id === undefined) {\n                const error: TEndpointError\n                    = {\n                  errorCode: $1_GET_ErrorCodes.ID_NOT_FOUND,\n                    details: \"Error\",\n                    status: 401,\n                  toastError: \"Autotoast\",\n                }\n    \n                return error;\n          }\n    \n\n  const data: $1_GET_TResponse = {\n    output: id,\n  }\n\n  return data;\n });",
+			"$0"
+		]
+	},
+	
+	"rls_endpoint_post": {
+		"scope": "javascript,typescript,ts,tsx, jsx, js",
+		"prefix": ["rls_endpoint_post", "endpoint_post", "eppost"],
+		"body": [
+			"// dto.ts",
+			"",
+			"export const $1_POST_SBody = z.object({\n  input: z.string(),\n});",
+			"export type $1_POST_TBody = z.infer<typeof $1_POST_SBody>",
+			"",
+			"export const $1_POST_SResponse = z.object({\n  output: z.string(),\n})",
+			"export type $1_POST_TResponse = z.infer<typeof $1_POST_SResponse>",
+			"",
+			"export enum $1_POST_ErrorCodes {\n    VALIDATION_ERROR = \"VALIDATION_ERROR\",\n    AUTO_TOAST = \"AUTO_TOAST\"\n}",
+			"",
+			"// client.svelte",
+			"const { data: $2, error } = await apiRequest<$1_POST_TResponse>({\n  url: `/api/endpoint`,\n  method: \"POST\",\n  body: payload,\n});",
+			"",
+			"if (error) {\n  switch (error.errorCode) {\n    case $1_POST_ErrorCodes.VALIDATION_ERROR:\n      toastError(\"Validation error\");\n      break;\n    default:\n      toastError(\"An error occurred while processing the request.\");\n      break;\n  }\n  toastError(error.details);\n}",
+			"",
+			"//+server.ts",
+			"export const POST = EndpointGenerator.RLS_BODY_ENDPOINT($1_POST_SBody, $1_POST_SResponse,{requireAuthentication:true,requirePermissions: [], responseHeaders: { \"Content-Type\": \"application/json\" }}, async ({params,body,user,request,url}) => { \n  try {\n    // Process the request\n    \n    const data: $1_POST_TResponse = {\n      output: \"Success\",\n    }\n\n    return data;\n  } catch (err) {\n    const error: TEndpointError = {\n      errorCode: $1_POST_ErrorCodes.VALIDATION_ERROR,\n      details: \"Error processing request\",\n      status: 400,\n      toastError: \"Request failed\",\n    }\n    \n    return error;\n  }\n});",
+			"$0"
+		]
+	},
+	
+	"rls_endpoint_put": {
+		"scope": "javascript,typescript,ts,tsx, jsx, js",
+		"prefix": ["rls_endpoint_put", "endpoint_put", "epput"],
+		"body": [
+			"// dto.ts",
+			"",
+			"export const $1_PUT_SBody = z.object({\n  input: z.string(),\n});",
+			"export type $1_PUT_TBody = z.infer<typeof $1_PUT_SBody>",
+			"",
+			"export const $1_PUT_SResponse = z.object({\n  output: z.string(),\n})",
+			"export type $1_PUT_TResponse = z.infer<typeof $1_PUT_SResponse>",
+			"",
+			"export enum $1_PUT_ErrorCodes {\n    ID_NOT_FOUND = \"ID_NOT_FOUND\",\n    VALIDATION_ERROR = \"VALIDATION_ERROR\"\n}",
+			"",
+			"// client.svelte",
+			"const { data: $2, error } = await apiRequest<$1_PUT_TResponse>({\n  url: `/api/endpoint/${id}`,\n  method: \"PUT\",\n  body: payload,\n});",
+			"",
+			"if (error) {\n  switch (error.errorCode) {\n    case $1_PUT_ErrorCodes.ID_NOT_FOUND:\n      toastError(\"Resource not found\");\n      break;\n    case $1_PUT_ErrorCodes.VALIDATION_ERROR:\n      toastError(\"Validation error\");\n      break;\n    default:\n      toastError(\"An error occurred while processing the request.\");\n      break;\n  }\n  toastError(error.details);\n}",
+			"",
+			"//+server.ts",
+			"export const PUT = EndpointGenerator.RLS_BODY_ENDPOINT($1_PUT_SBody, $1_PUT_SResponse,{requireAuthentication:true,requirePermissions: [], responseHeaders: { \"Content-Type\": \"application/json\" }}, async ({params,body,user,request,url}) => { \n  const { id } = params;\n  \n  if (id === undefined) {\n    const error: TEndpointError = {\n      errorCode: $1_PUT_ErrorCodes.ID_NOT_FOUND,\n      details: \"Resource not found\",\n      status: 404,\n      toastError: \"Resource not found\",\n    }\n    \n    return error;\n  }\n  \n  try {\n    // Process the update\n    \n    const data: $1_PUT_TResponse = {\n      output: \"Updated successfully\",\n    }\n\n    return data;\n  } catch (err) {\n    const error: TEndpointError = {\n      errorCode: $1_PUT_ErrorCodes.VALIDATION_ERROR,\n      details: \"Error updating resource\",\n      status: 400,\n      toastError: \"Update failed\",\n    }\n    \n    return error;\n  }\n});",
+			"$0"
+		]
+	},
+	
+	"rls_endpoint_delete": {
+		"scope": "javascript,typescript,ts,tsx, jsx, js",
+		"prefix": ["rls_endpoint_delete", "endpoint_delete", "epdelete"],
+		"body": [
+			"// dto.ts",
+			"",
+			"export const $1_DELETE_SQuery = z.object({\n  // Add any query parameters if needed\n});",
+			"export type $1_DELETE_TQuery = z.infer<typeof $1_DELETE_SQuery>",
+			"",
+			"export const $1_DELETE_SResponse = z.object({\n  success: z.boolean(),\n})",
+			"export type $1_DELETE_TResponse = z.infer<typeof $1_DELETE_SResponse>",
+			"",
+			"export enum $1_DELETE_ErrorCodes {\n    ID_NOT_FOUND = \"ID_NOT_FOUND\",\n    PERMISSION_DENIED = \"PERMISSION_DENIED\"\n}",
+			"",
+			"// client.svelte",
+			"const { data: $2, error } = await apiRequest<$1_DELETE_TResponse>({\n  url: `/api/endpoint/${id}`,\n  method: \"DELETE\",\n});",
+			"",
+			"if (error) {\n  switch (error.errorCode) {\n    case $1_DELETE_ErrorCodes.ID_NOT_FOUND:\n      toastError(\"Resource not found\");\n      break;\n    case $1_DELETE_ErrorCodes.PERMISSION_DENIED:\n      toastError(\"You don't have permission to delete this resource\");\n      break;\n    default:\n      toastError(\"An error occurred while processing the request.\");\n      break;\n  }\n  toastError(error.details);\n}",
+			"",
+			"//+server.ts",
+			"export const DELETE = EndpointGenerator.RLS_QUERY_ENDPOINT($1_DELETE_SQuery, $1_DELETE_SResponse,{requireAuthentication:true,requirePermissions: [], responseHeaders: { \"Content-Type\": \"application/json\" }}, async ({params,query,user,request,url}) => { \n  const { id } = params;\n  \n  if (id === undefined) {\n    const error: TEndpointError = {\n      errorCode: $1_DELETE_ErrorCodes.ID_NOT_FOUND,\n      details: \"Resource not found\",\n      status: 404,\n      toastError: \"Resource not found\",\n    }\n    \n    return error;\n  }\n  \n  // Check permissions if needed\n  if (false /* permission check */) {\n    const error: TEndpointError = {\n      errorCode: $1_DELETE_ErrorCodes.PERMISSION_DENIED,\n      details: \"You don't have permission to delete this resource\",\n      status: 403,\n      toastError: \"Permission denied\",\n    }\n    \n    return error;\n  }\n  \n  // Process the deletion\n  \n  const data: $1_DELETE_TResponse = {\n    success: true,\n  }\n\n  return data;\n});",
+			"$0"
+		]
+	},
+	
+	"rls_endpoint_patch": {
+		"scope": "javascript,typescript,ts,tsx, jsx, js",
+		"prefix": ["rls_endpoint_patch", "endpoint_patch", "eppatch"],
+		"body": [
+			"// dto.ts",
+			"",
+			"export const $1_PATCH_SBody = z.object({\n  // Fields that can be updated\n  field: z.string().optional(),\n});",
+			"export type $1_PATCH_TBody = z.infer<typeof $1_PATCH_SBody>",
+			"",
+			"export const $1_PATCH_SResponse = z.object({\n  success: z.boolean(),\n  updatedFields: z.array(z.string()),\n})",
+			"export type $1_PATCH_TResponse = z.infer<typeof $1_PATCH_SResponse>",
+			"",
+			"export enum $1_PATCH_ErrorCodes {\n    ID_NOT_FOUND = \"ID_NOT_FOUND\",\n    VALIDATION_ERROR = \"VALIDATION_ERROR\"\n}",
+			"",
+			"// client.svelte",
+			"const { data: $2, error } = await apiRequest<$1_PATCH_TResponse>({\n  url: `/api/endpoint/${id}`,\n  method: \"PATCH\",\n  body: partialData,\n});",
+			"",
+			"if (error) {\n  switch (error.errorCode) {\n    case $1_PATCH_ErrorCodes.ID_NOT_FOUND:\n      toastError(\"Resource not found\");\n      break;\n    case $1_PATCH_ErrorCodes.VALIDATION_ERROR:\n      toastError(\"Validation error\");\n      break;\n    default:\n      toastError(\"An error occurred while processing the request.\");\n      break;\n  }\n  toastError(error.details);\n}",
+			"",
+			"//+server.ts",
+			"export const PATCH = EndpointGenerator.RLS_BODY_ENDPOINT($1_PATCH_SBody, $1_PATCH_SResponse,{requireAuthentication:true,requirePermissions: [], responseHeaders: { \"Content-Type\": \"application/json\" }}, async ({params,body,user,request,url}) => { \n  const { id } = params;\n  \n  if (id === undefined) {\n    const error: TEndpointError = {\n      errorCode: $1_PATCH_ErrorCodes.ID_NOT_FOUND,\n      details: \"Resource not found\",\n      status: 404,\n      toastError: \"Resource not found\",\n    }\n    \n    return error;\n  }\n  \n  try {\n    // Retrieve the existing resource first\n    // const existingResource = await getResource(id);\n    \n    // Apply partial updates\n    // const updatedResource = { ...existingResource, ...body };\n    \n    // Process the partial update\n    const updatedFields = Object.keys(body);\n    \n    const data: $1_PATCH_TResponse = {\n      success: true,\n      updatedFields,\n    }\n\n    return data;\n  } catch (err) {\n    const error: TEndpointError = {\n      errorCode: $1_PATCH_ErrorCodes.VALIDATION_ERROR,\n      details: \"Error updating resource\",\n      status: 400,\n      toastError: \"Update failed\",\n    }\n    \n    return error;\n  }\n});",
+			"$0"
+		]
+	}
+
+}

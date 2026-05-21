@@ -5,3 +5,11 @@ resources:
   - snippets
   - tasks
   - uiState
+additionalFiles:
+  - /Users/bodoganabel/dev/saleskapocs-delivery/eszter-reiki/snippets/abel-snippets.code-snippets
+  - /Users/bodoganabel/dev/saleskapocs-delivery/eszter-reiki/snippets/javascript.json
+  - /Users/bodoganabel/dev/saleskapocs-delivery/eszter-reiki/snippets/javascriptreact.json
+  - /Users/bodoganabel/dev/saleskapocs-delivery/eszter-reiki/snippets/myGlobalSnippets.code-snippets
+  - /Users/bodoganabel/dev/saleskapocs-delivery/eszter-reiki/snippets/svelte.json
+  - /Users/bodoganabel/dev/saleskapocs-delivery/eszter-reiki/snippets/typescript.json
+  - /Users/bodoganabel/dev/saleskapocs-delivery/eszter-reiki/snippets/typescriptreact.json
