@@ -20,5 +20,13 @@
     "[postcss]": {
         "editor.defaultFormatter": "prettier.prettier-vscode"
     },
-    "terminal.integrated.showCommandHint": false
+    "terminal.integrated.showCommandHint": false,
+    "syncSettings.resources": [
+        "extensions",
+        "keybindings",
+        "settings",
+        "snippets",
+        "tasks",
+        "uiState"
+    ]
 }
