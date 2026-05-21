@@ -1,0 +1,96 @@
+disabled:
+  - id: aaron-bond.better-comments
+    uuid: 7a0110bb-231a-4598-aa1b-0769ea46d28b
+  - id: fabianlauer.vs-code-xml-format
+    uuid: 7752d5d1-7dab-46f8-bc86-ffca8c2d33e7
+  - id: github.vscode-github-actions
+    uuid: 04f49bfc-8330-4eee-8237-ea938fb755ef
+  - id: matthewpi.caddyfile-support
+    uuid: c1d1ec36-b62e-4046-b2e6-0e49df95a9f8
+  - id: ms-playwright.playwright
+    uuid: f53b1d43-eef4-4909-99ca-56b5fa3e108c
+  - id: ms-vscode.powershell
+    uuid: 40d39ce9-c381-47a0-80c8-a6661f731eab
+  - id: Natizyskunk.sftp
+    uuid: 00000000-0000-0000-0000-000000000000
+  - id: naumovs.color-highlight
+    uuid: 121396ad-85a1-45ec-9fd1-d95028a847f5
+  - id: simplerick.pinned-projects
+    uuid: c0f4b013-9d9f-4f52-ad43-e7c34fd41aaf
+  - id: steoates.autoimport
+    uuid: 70378119-1d85-4935-9733-0298c7a369a2
+  - id: waderyan.gitblame
+    uuid: 2335b326-c334-4e81-bc51-c408fcec6e7c
+  - id: yatki.vscode-surround
+    uuid: b476195a-5d3b-4a10-af0b-3d94f9c9f924
+  - id: YoavBls.pretty-ts-errors
+    uuid: 00000000-0000-0000-0000-000000000000
+enabled:
+  - id: 1YiB.svelte-bundle
+    uuid: null
+  - id: anseki.vscode-color
+    uuid: 37d7747f-e652-4eac-83de-f2939f7e2121
+  - id: ardenivanov.svelte-intellisense
+    uuid: null
+  - id: bradlc.vscode-tailwindcss
+    uuid: 4db62a7c-7d70-419c-96d2-6c3a4dc77ea5
+  - id: Chanzhaoyu.svelte-5-snippets
+    uuid: 4ab27b74-4bc3-48aa-b268-7b7461d938e9
+  - id: csstools.postcss
+    uuid: 80def04d-6d01-495b-9d59-4ad19408872f
+  - id: cytostatic-vscode.mjml-editor
+    uuid: 06ee7c8e-bf2b-47bc-bf0f-aeecbd8cafbe
+  - id: dbaeumer.vscode-eslint
+    uuid: 583b2b34-2c1e-4634-8c0b-0b82e283ea3a
+  - id: ecmel.vscode-html-css
+    uuid: aaee577c-f062-495a-9816-0cbd442f1d25
+  - id: fivethree.vscode-svelte-snippets
+    uuid: a42d3dd1-f528-407c-a110-d5e35c7ca4c2
+  - id: formulahendry.auto-close-tag
+    uuid: d3836729-9cc1-42c1-b2af-d50071f57d29
+  - id: formulahendry.auto-complete-tag
+    uuid: null
+  - id: formulahendry.auto-rename-tag
+    uuid: 6e440e71-8ed9-4f25-bb78-4b13096b8a03
+  - id: Gydunhn.html-essentials
+    uuid: d01c599d-da63-4f55-a92b-33488926de3e
+  - id: html-validate.vscode-html-validate
+    uuid: 9960844f-3c7d-4911-87c4-d2be48d72dfd
+  - id: HTMLHint.vscode-htmlhint
+    uuid: d0a9daff-de6d-4669-a30b-14a49a1a17e0
+  - id: ionutvmi.path-autocomplete
+    uuid: 0d1241e3-fa60-4f24-8f2a-6d7085677c48
+  - id: janisdd.vscode-edit-csv
+    uuid: 72e9b049-d75d-415c-96e1-d6e74f0e3074
+  - id: johnpapa.vscode-peacock
+    uuid: 5a7017bf-c571-4d77-b902-6e56b16f539a
+  - id: joy-yu.css-snippets
+    uuid: null
+  - id: kamikillerto.vscode-colorize
+    uuid: 445ba381-f232-4150-9056-d790bd76d698
+  - id: mechatroner.rainbow-csv
+    uuid: 3792588c-3d35-442d-91ea-fe6a755e8155
+  - id: meganrogge.template-string-converter
+    uuid: e56ae0dc-ddd7-462a-872d-6d14ea27f737
+  - id: mhutchie.git-graph
+    uuid: 438221f8-1107-4ccd-a6fe-f3b7fe0856b7
+  - id: oderwat.indent-rainbow
+    uuid: eaa2127d-cb69-4ab9-8505-a60c9ee5f28b
+  - id: pivaszbs.svelte-autoimport
+    uuid: 905ce110-dab5-4222-946d-b79642fcdec5
+  - id: pranaygp.vscode-css-peek
+    uuid: 0b8f8d63-11a2-4194-969c-ca7488b3413a
+  - id: prettier.prettier-vscode
+    uuid: baa185f3-22aa-4a14-ac21-5c421de53415
+  - id: redhat.vscode-yaml
+    uuid: 2061917f-f76a-458a-8da9-f162de22b97e
+  - id: svelte.svelte-vscode
+    uuid: c5463f77-75d9-4a25-8cc4-d8541a461285
+  - id: vincaslt.highlight-matching-tag
+    uuid: aae00486-7e92-42b3-91b0-2b419e4f3875
+  - id: vitest.explorer
+    uuid: ab3534a7-eaae-4f75-9735-62bfd758b220
+  - id: yzhang.markdown-all-in-one
+    uuid: 98790d67-10fa-497c-9113-f6c7489207b2
+  - id: zokugun.cron-tasks
+    uuid: b7bbbbd5-7a39-4312-87aa-ef6a41de67fb

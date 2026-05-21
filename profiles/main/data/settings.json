@@ -1,0 +1,24 @@
+{
+    "workbench.colorTheme": "Default Dark Modern",
+    "svelte.enable-ts-plugin": true,
+    "totalTypeScript.hideAllTips": true,
+    "totalTypeScript.hideBasicTips": true,
+    "[typescript]": {
+        "editor.defaultFormatter": "vscode.typescript-language-features"
+    },
+    "git.confirmSync": false,
+    "editor.wordWrap": "on",
+    "typescript.updateImportsOnFileMove.enabled": "always",
+    "[json]": {
+        "editor.defaultFormatter": "vscode.json-language-features"
+    },
+    "[svelte]": {
+        "editor.defaultFormatter": "svelte.svelte-vscode"
+    },
+    "builder.allowSelfSignedCertificates": "Yes",
+    "diffEditor.renderSideBySide": true,
+    "[postcss]": {
+        "editor.defaultFormatter": "prettier.prettier-vscode"
+    },
+    "terminal.integrated.showCommandHint": false
+}
